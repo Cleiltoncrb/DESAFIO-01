@@ -1,15 +1,24 @@
 package com.cleilton.desafio01;
 
+import java.util.Random;
+import java.util.UUID;
+
 public class Pedido {
 
     private String codigo;
     private double valorBasico;
     private double desconto;
 
-    public Pedido(String codigo, double valorBasico, double desconto) {
-        this.codigo = codigo;
+    public Pedido( double valorBasico, double desconto) {
+        this.codigo = gerarCodigoAleatorio();
         this.valorBasico = valorBasico;
         this.desconto = desconto;
+    }
+
+    private String gerarCodigoAleatorio() {
+        Random random = new Random();
+        int codigoGerado = random.nextInt(10000);
+        return String.format("PED-%06d", codigoGerado);
     }
 
     public String getCodigo() {
