@@ -19,7 +19,7 @@ public class OrdemService {
         System.out.printf("\n");
         System.out.printf("Código do pedido: %s%n", pedido.getCodigo());
         System.out.printf(" - Valor do produto: R$ %.2f%n", pedido.getValorBasico());
-        System.out.printf(" - Desconto: %.2f%%%n", pedido.getDesconto());
+        System.out.printf(" - Desconto: %.0f%%%n", pedido.getDesconto());
         System.out.printf(" - Frete: R$ %.2f%n", frete);
 
         return valorComDesconto + frete;
