@@ -1,15 +1,14 @@
-package com.cleilton.desafio01;
+package com.cleilton.desafio01.services;
 
+import com.cleilton.desafio01.entities.Pedido;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class OrdemService {
 
-    private final FreteService freteService;
-
-    public OrdemService(FreteService freteService) {
-        this.freteService = freteService;
-    }
+    @Autowired
+    private FreteService freteService;
 
     public double calcularTotal(Pedido pedido) {
 

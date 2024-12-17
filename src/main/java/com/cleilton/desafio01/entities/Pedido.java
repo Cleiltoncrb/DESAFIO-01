@@ -1,7 +1,6 @@
-package com.cleilton.desafio01;
+package com.cleilton.desafio01.entities;
 
 import java.util.Random;
-import java.util.UUID;
 
 public class Pedido {
 

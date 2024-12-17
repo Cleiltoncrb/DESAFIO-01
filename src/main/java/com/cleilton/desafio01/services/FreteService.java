@@ -1,4 +1,4 @@
-package com.cleilton.desafio01;
+package com.cleilton.desafio01.services;
 
 import org.springframework.stereotype.Service;
 
