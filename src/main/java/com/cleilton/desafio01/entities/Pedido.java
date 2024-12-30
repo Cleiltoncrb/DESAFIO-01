@@ -1,28 +1,25 @@
 package com.cleilton.desafio01.entities;
 
-import java.util.Random;
+import lombok.Data;
 
+import java.util.Random;
+@Data
 public class Pedido {
 
-    private String codigo;
+    private int codigo;
     private double valorBasico;
     private double desconto;
 
-    public Pedido( double valorBasico, double desconto) {
-        this.codigo = gerarCodigoAleatorio();
+    public Pedido( int codigo, double valorBasico, double desconto) {
+        this.codigo = codigo;
         this.valorBasico = valorBasico;
         this.desconto = desconto;
     }
 
-    private String gerarCodigoAleatorio() {
-        Random random = new Random();
-        int codigoGerado = random.nextInt(10000);
-        return String.format("PED-%06d", codigoGerado);
-    }
-
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
+
     public double getValorBasico() {
         return valorBasico;
     }

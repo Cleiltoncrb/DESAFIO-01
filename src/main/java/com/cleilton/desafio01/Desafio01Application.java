@@ -1,5 +1,6 @@
 package com.cleilton.desafio01;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.cleilton.desafio01.entities.Pedido;
 import com.cleilton.desafio01.services.OrdemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,15 +12,11 @@ import org.springframework.context.annotation.ComponentScan;
 import java.util.Scanner;
 
 @SpringBootApplication
-
+@ComponentScan({"com.cleilton.desafio01"})
 public class Desafio01Application implements CommandLineRunner {
 
     @Autowired
     private OrdemService ordemService;
-
-//    public Desafio01Application(OrdemService ordemService) {
-//        this.ordemService = ordemService;
-//    }
 
     public static void main(String[] args) {
         SpringApplication.run(Desafio01Application.class, args);
@@ -28,46 +25,24 @@ public class Desafio01Application implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
-        Scanner scanner = new Scanner(System.in);
+        System.out.println();
 
-        boolean continuar = true;
+        Pedido order1 = new Pedido(1034, 150.0, 20.0);
+        System.out.println("Pedido código: " + order1.getCodigo());
+        System.out.println("Valor total: R$ " + ordemService.calcularTotal(order1));
 
-        System.out.print("\n\n");
+        System.out.println();
 
-        while (continuar) {
+        Pedido order2 = new Pedido(2282, 800.0, 10.0);
+        System.out.println("Pedido código: " + order2.getCodigo());
+        System.out.println("Valor total: R$ " + ordemService.calcularTotal(order2));
 
-            System.out.print("Digite o valor básico do pedido: R$ ");
-            double valorBasico = scanner.nextDouble();
+        System.out.println();
 
-            System.out.print("Digite o desconto do pedido (em %): ");
-            double desconto = scanner.nextDouble();
+        Pedido order3 = new Pedido(1309, 95.90, 0.0);
+        System.out.println("Pedido código: " + order3.getCodigo());
+        System.out.println("Valor total: R$ " + ordemService.calcularTotal(order3));
 
-
-            Pedido pedido = new Pedido(valorBasico, desconto);
-            double total = ordemService.calcularTotal(pedido);
-            System.out.printf(" - Total do Pedido: R$ %.2f%n%n", total);
-
-
-            String resposta;
-            boolean respostaValida = false;
-            while (!respostaValida) {
-                System.out.print("\n Deseja fazer outro pedido? \n Digite ( 1 para Sim ) ou ( 0 para Não ) ");
-                resposta = scanner.next();
-
-                if (resposta.equals("1")) {
-                    respostaValida = true;
-                } else if (resposta.equals("0")) {
-                    respostaValida = true;
-                    continuar = false;
-                } else {
-                    System.out.println("\n\n Por favor, digite ( 1 para Sim ) ou ( 0 para Não )!!! ");
-                }
-            }
-        }
-
-        System.out.println("\n\n\n Obrigado por usar o sistema de pedidos!");
-        scanner.close();
     }
-
-
 }
+
