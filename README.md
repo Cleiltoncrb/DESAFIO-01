@@ -7,3 +7,4 @@ Fri Mar 21 11:47:44 UTC 2025 - Cleiltoncrb: - mais um teste
 - 2025-03-25 20:50:21 | Cleiltoncrb: OrderItem e OrderItemPK
 - 2025-03-25 21:31:40 | Cleiltoncrb: DataBase seeding - populando o Banco de Dados H2
 - 2025-03-25 21:42:05 | Cleiltoncrb: equals e hashCode
+- 2025-03-25 22:54:59 | Cleiltoncrb: Correção, nome do Package
